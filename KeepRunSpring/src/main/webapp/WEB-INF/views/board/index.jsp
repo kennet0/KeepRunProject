@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 
 <!DOCTYPE html>
@@ -315,10 +316,10 @@
           <div class="row">
 
             <!-- Area Chart -->
+             <c:forEach items="${weekKcal}" var="kcal" varStatus="status" begin="0" end="6">
+         	  <input type="hidden" id="kcal${status.index}"  value="${kcal}" >
+            </c:forEach>
             
-            <c:foreach items="${weekKcal}" var="kcal">
-            	<input type="text" value="${kcal}">
-            </c:foreach>
             
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
@@ -389,8 +390,14 @@
 
         </div>
         <!-- /.container-fluid -->
-
+        
       </div>
+   	 <c:forEach items="${dayDeviceData}" var="DayDeviceData" varStatus="status">
+          <input type="hidden" id="gpsLatitude${status.index}"  value="${DayDeviceData.gpsLatitude}" >
+          <input type="hidden" id="gpsLongitude${status.index}"  value="${DayDeviceData.gpsLongitude}" >
+       </c:forEach>
+        <input type="hidden" id="gpsCount"  value="${fn:length(dayDeviceData)}" >
+      
       <div id="map" style="width:100%;height:350px;"></div>
       <!-- End of Main Content -->
  <%@include file="../etc/footer.jsp"%>

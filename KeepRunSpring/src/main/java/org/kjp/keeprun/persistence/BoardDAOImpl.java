@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.kjp.keeprun.domain.DeviceDataVO;
 import org.kjp.keeprun.domain.WorkProcessVO;
 import org.springframework.stereotype.Repository;
 
@@ -32,8 +33,14 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public List<Integer> weekKcal(Date workDate) {
-		// TODO Auto-generated method stub
+		
 		return session.selectList(nameSpace+".weekKcal", workDate);
+	}
+
+	@Override
+	public List<DeviceDataVO> dayDeviceData(Date sendTime) {
+		
+		return session.selectList(nameSpace+".dayDeviceData", sendTime);
 	}
 
 	

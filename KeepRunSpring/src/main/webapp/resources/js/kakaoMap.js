@@ -1,9 +1,13 @@
+
+
 var mapContainer = document.getElementById('map'), 
     mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), 
+        center: new kakao.maps.LatLng(37.250674, 127.022816), 
         level: 3
     };
 var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+
 
 function addMarker(setLat,setLng){
 
@@ -14,29 +18,17 @@ function addMarker(setLat,setLng){
 	marker.setMap(map);
 }
 
-	 var jsonArray = new Array();
-
-	 var aJson = new Object();
-	 aJson.lat = 33.452344169439975;
-	 aJson.lng = 126.56878163224233;
-	 jsonArray.push(aJson);
 	
-	 var bJson = new Object();
-	 bJson.lat = 33.47;
-	 bJson.lng = 126.56878163224233;
-	 jsonArray.push(bJson);
-
-	 var stringJson=JSON.stringify(jsonArray);
-	////////////////////////////////////////////
-	
-	var obj = JSON.parse(stringJson);
-	
+	var gpsCount=document.getElementById("gpsCount").value;
+	var lat=[];
+	var lng=[];
 	var gpsData = new Array();
+	for(var i;i<gpsCount;i++){
+		lat[i]=document.getElementById("gpsLatitude"+i).value;
+		lng[i]=document.getElementById("gpsLongitude"+i).value;
+		gpsData.push(new kakao.maps.LatLng(lat[i], lng[i]))
+	}
 	
-	for(i in obj){
-		gpsData.push(new kakao.maps.LatLng(obj[i].lat, obj[i].lng));
-	};
-	console.log(gpsData);
 	
 	var linePath = gpsData;
 
@@ -49,4 +41,5 @@ function addMarker(setLat,setLng){
 		strokeStyle: 'solid' // ���� ��Ÿ���Դϴ�
 	});
 
-	polyline.setMap(map);  
+	polyline.setMap(map); 
+	 

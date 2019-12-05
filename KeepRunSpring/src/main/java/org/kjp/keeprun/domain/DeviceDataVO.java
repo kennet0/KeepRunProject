@@ -6,10 +6,18 @@ public class DeviceDataVO {
 
 	private int deviceId;
 	private int userHR;
-	private double gpsAltitude;
+	private double gpsLatitude;
 	private double gpsLongitude;
-	private Date nowTime;
+	private Date sendTime;
 	private int dno;
+	
+	
+	public Date getSendTime() {
+		return sendTime;
+	}
+	public void setSendTime(Date sendTime) {
+		this.sendTime = sendTime;
+	}
 	public int getDeviceId() {
 		return deviceId;
 	}
@@ -22,23 +30,17 @@ public class DeviceDataVO {
 	public void setUserHR(int userHR) {
 		this.userHR = userHR;
 	}
-	public double getGpsAltitude() {
-		return gpsAltitude;
+	public double getGpsLatitude() {
+		return gpsLatitude;
 	}
-	public void setGpsAltitude(double gpsAltitude) {
-		this.gpsAltitude = gpsAltitude;
+	public void setGpsLatitude(double gpsLatitude) {
+		this.gpsLatitude = gpsLatitude;
 	}
 	public double getGpsLongitude() {
 		return gpsLongitude;
 	}
 	public void setGpsLongitude(double gpsLongitude) {
 		this.gpsLongitude = gpsLongitude;
-	}
-	public Date getNowTime() {
-		return nowTime;
-	}
-	public void setNowTime(Date nowTime) {
-		this.nowTime = nowTime;
 	}
 	public int getDno() {
 		return dno;

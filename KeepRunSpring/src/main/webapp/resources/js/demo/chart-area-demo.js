@@ -29,12 +29,24 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
+var kcal = [0,0,0,0,0,0,0];
+
+
+for(var i=0; i<7;i++){
+  if(document.getElementById("kcal"+i)!=null){
+    kcal[i]=document.getElementById("kcal"+i).value;
+  }
+}
+
+console.log(kcal[6]);
+
+
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: ["Mon","Tue","Wed","Thr","Fri","Sat","Sun"],
     datasets: [{
-      label: "Earnings",
+      label: "kcal",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -46,7 +58,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 1, 1, 1, 1, 1],
+      data: [kcal[0], kcal[1], kcal[2], kcal[3], kcal[4], kcal[5], kcal[6]],
     }],
   },
   options: {

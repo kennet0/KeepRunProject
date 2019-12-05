@@ -12,5 +12,18 @@
  	<select id="wList" resultType="WorkProcessVO">
 		<![CDATA[SELECT * FROM w_data where deviceId=#{deviceId} ORDER BY bno DESC ]]> 
 	</select>
+	
+	<select id="weekKcal" resultType="Integer">
+		<![CDATA[SELECT kcal FROM w_data WHERE YEARWEEK(workDate) = YEARWEEK(#{workDate}) ORDER BY bno desc]]> 
+	</select>
+	
+	<select id="dayDeviceData" resultType="DeviceDataVO">
+		<![CDATA[SELECT * FROM a_data WHERE DATE(sendTime) = #{sendTime} ORDER BY dno ]]> 
+	</select>
+	
+	
+	
+	
+	
    
 </mapper>

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.kjp.keeprun.domain.DeviceDataVO;
 import org.kjp.keeprun.domain.WorkProcessVO;
 import org.kjp.keeprun.persistence.BoardDAO;
 import org.springframework.stereotype.Service;
@@ -21,19 +22,24 @@ public class BoardServiceImpl implements BoardService {
 		
 		return boardDAO.todayWork(deviceId);
 	}
-	
-		
+			
 	@Override
 	public List<WorkProcessVO> wList(int deviceId) {
 		
 		return boardDAO.wList(deviceId);
 	}
 
-
 	@Override
 	public List<Integer> weekKcal(Date workDate) {
 		// TODO Auto-generated method stub
 		return boardDAO.weekKcal(workDate);
+	}
+
+	@Override
+	public List<DeviceDataVO> dayDeviceData(Date sendTime) {
+		// TODO Auto-generated method stub
+	
+		return boardDAO.dayDeviceData(sendTime);
 	}
 
 	

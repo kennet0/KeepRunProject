@@ -5,6 +5,7 @@ package org.kjp.keeprun.controller;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -38,14 +39,14 @@ public class BoardController {
 	public void index(Model model, @RequestParam("deviceId") int deviceId) {
 		logger.info("BoardIndex");
 		// 3. sql.Date를 이용하여 얻어온 Date
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date sqlDate = new java.sql.Date(System.currentTimeMillis());
-        
-        logger.info(format.format(sqlDate));
+		
+		Date sqlDate = new java.sql.Date(System.currentTimeMillis());
 
 		model.addAttribute("todayWork", boardService.todayWork(deviceId));
 		model.addAttribute("wList", boardService.wList(deviceId));
 		model.addAttribute("weekKcal", boardService.weekKcal(sqlDate));
+		model.addAttribute("dayDeviceData", boardService.dayDeviceData(sqlDate));
+	
 		
 	}
 	@RequestMapping(value = "/indexOne")
