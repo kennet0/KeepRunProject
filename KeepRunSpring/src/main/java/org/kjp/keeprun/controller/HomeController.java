@@ -41,7 +41,7 @@ public class HomeController {
 			
 		}else {
 			rttr.addAttribute("deviceId", checkVO.getDeviceId());
-			return "redirect:/board/index";
+			return "redirect:/board/tables";
 		}
 		
 		return "404";

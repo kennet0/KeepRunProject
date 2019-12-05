@@ -34,8 +34,16 @@ public class BoardController {
 	public void index(Model model, @RequestParam("deviceId") int deviceId) {
 		logger.info("BoardIndex");
 		model.addAttribute("todayWork", boardService.todayWork(deviceId));
+		model.addAttribute("wList", boardService.wList(deviceId));
 		
 	}
+	@RequestMapping(value = "/indexOne")
+	public void indexOne(Model model, @RequestParam("deviceId") int deviceId) {
+		logger.info("BoardIndex");
+		model.addAttribute("todayWork", boardService.todayWork(deviceId));
+		model.addAttribute("wList", boardService.wList(deviceId));
+	}
+	
 	
 	@RequestMapping(value = "/tables")
 	public void table(Model model, @RequestParam("deviceId") int deviceId) {

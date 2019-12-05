@@ -256,8 +256,8 @@
                  
                   <tbody>
                   <c:forEach items="${wList}" var= "WorkProcessVO">
-                    <tr onclick="location.href='#'" style="cursor:hand">
-                      <td>{WorkProcessVO.workDate}</td>
+                    <tr onclick="location.href='indexOne?deviceId=${WorkProcessVO.deviceId}&bno=${WorkProcessVO.bno}&workDate=${WorkProcessVO.workDate}'" style="cursor:hand">
+                      <td>${WorkProcessVO.workDate}</td>
                       <td>${WorkProcessVO.workTime}</td>
                       <td>${WorkProcessVO.distance}</td>
                       <td>${WorkProcessVO.kcal}</td>

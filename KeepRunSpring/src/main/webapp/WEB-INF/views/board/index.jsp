@@ -505,6 +505,7 @@
         <!-- /.container-fluid -->
 
       </div>
+      <div id="map" style="width:100%;height:350px;"></div>
       <!-- End of Main Content -->
  <%@include file="../etc/footer.jsp"%>
 
@@ -555,6 +556,10 @@
   <!-- Page level custom scripts -->
   <script src="<c:url value="/resources/js/demo/chart-area-demo.js"/>"></script>
   <script src="<c:url value="/resources/js/demo/chart-pie-demo.js"/>"></script>
+  <!--  Map -->
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f57fa8fa300ecc95635927fa47bf6f26"></script>
+  <script src="<c:url value="/resources/js/kakaoMap.js"/>"></script>
+
 
 </body>
 
