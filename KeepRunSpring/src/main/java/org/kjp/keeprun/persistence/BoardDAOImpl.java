@@ -1,5 +1,6 @@
 package org.kjp.keeprun.persistence;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -27,6 +28,12 @@ public class BoardDAOImpl implements BoardDAO {
 		System.out.println("BoardDAO wList");
 		
 		return session.selectList(nameSpace+".wList", deviceId);
+	}
+
+	@Override
+	public List<Integer> weekKcal(Date workDate) {
+		// TODO Auto-generated method stub
+		return session.selectList(nameSpace+".weekKcal", workDate);
 	}
 
 	

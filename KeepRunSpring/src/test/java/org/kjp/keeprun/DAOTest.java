@@ -1,11 +1,16 @@
 package org.kjp.keeprun;
 
 
+
+import java.sql.Date;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kjp.keeprun.domain.MemberVO;
+import org.kjp.keeprun.persistence.BoardDAO;
 import org.kjp.keeprun.persistence.HomeDAO;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,7 +21,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 public class DAOTest {
 	@Inject
-	HomeDAO dao;
+	HomeDAO homeDao;
+	BoardDAO boardDao;
 	
 	@Test
 	public void create() throws Exception{
@@ -26,9 +32,16 @@ public class DAOTest {
 		vo.setUserHeight(10);
 		
 		vo.setDeviceId(10);
-		dao.register(vo);
-		
-		
+		homeDao.register(vo);
 	}
+	
+	@Test
+	public void timeTest() throws Exception{
+		
+//        Date sqlDate = new java.sql.Date(System.currentTimeMillis());
+//        List<Integer> list = boardDao.weekKcal(sqlDate);
+        System.out.println("sdafds");
+    }
 
+	
 }

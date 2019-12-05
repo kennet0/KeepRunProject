@@ -1,5 +1,7 @@
 package org.kjp.keeprun.service;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -25,6 +27,13 @@ public class BoardServiceImpl implements BoardService {
 	public List<WorkProcessVO> wList(int deviceId) {
 		
 		return boardDAO.wList(deviceId);
+	}
+
+
+	@Override
+	public List<Integer> weekKcal(Date workDate) {
+		// TODO Auto-generated method stub
+		return boardDAO.weekKcal(workDate);
 	}
 
 	
