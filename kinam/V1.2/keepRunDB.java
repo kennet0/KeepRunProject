@@ -56,7 +56,7 @@ public class KeepRunDB extends HttpServlet {
               System.out.println("DB 접속 성공");
           }
     	   Class.forName("org.mariadb.jdbc.Driver");  
-            conn = DriverManager.getConnection("jdbc:mariadb://bigmit.iptime.org:54000/keeprun", "kinam", "1020");
+            conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1/db", "****", "****");
             
            
            
