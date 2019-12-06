@@ -22,7 +22,7 @@ public class HomeServiceImpl implements HomeService{
 
 	@Override
 	public MemberVO userInfo(MemberVO vo) throws Exception {
-				
+			
 		return dao.userInfo(vo);
 	}
 

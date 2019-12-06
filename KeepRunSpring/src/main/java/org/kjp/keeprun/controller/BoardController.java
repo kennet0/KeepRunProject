@@ -40,11 +40,12 @@ public class BoardController {
 		logger.info("BoardIndex");
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
         MemberVO userInfo = (MemberVO) flashMap.get("userInfo");
+        int deviceId = userInfo.getDeviceId();
 		
-		model.addAttribute("lastWork", boardService.lastWork(userInfo.getDeviceId()));
-		model.addAttribute("wList", boardService.wList(userInfo.getDeviceId()));
-		model.addAttribute("weekKcal", boardService.weekKcal(boardService.lastWork(userInfo.getDeviceId())));
-		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.lastWork(userInfo.getDeviceId())));
+		model.addAttribute("lastWork", boardService.lastWork(deviceId));
+		model.addAttribute("wList", boardService.wList(deviceId));
+		model.addAttribute("weekKcal", boardService.weekKcal(boardService.lastWork(deviceId)));
+		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.lastWork(deviceId)));
 		
 	
 		
