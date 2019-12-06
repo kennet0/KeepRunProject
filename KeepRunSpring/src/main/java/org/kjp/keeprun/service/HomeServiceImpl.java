@@ -21,9 +21,9 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public MemberVO loginCheck(MemberVO vo) throws Exception {
+	public MemberVO userInfo(MemberVO vo) throws Exception {
 				
-		return dao.loginCheck(vo);
+		return dao.userInfo(vo);
 	}
 
 }

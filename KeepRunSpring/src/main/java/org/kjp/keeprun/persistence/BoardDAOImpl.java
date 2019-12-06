@@ -1,12 +1,12 @@
 package org.kjp.keeprun.persistence;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.kjp.keeprun.domain.DeviceDataVO;
+import org.kjp.keeprun.domain.MemberVO;
 import org.kjp.keeprun.domain.WorkProcessVO;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +19,9 @@ public class BoardDAOImpl implements BoardDAO {
 
 	
 	@Override
-	public WorkProcessVO todayWork(int deviceId) {
+	public WorkProcessVO lastWork(int deviceId) {
 		// TODO Auto-generated method stub
-		return session.selectOne(nameSpace+ ".todayWork",deviceId);
+		return session.selectOne(nameSpace+ ".lastWork",deviceId);
 	}
 	
 	@Override
@@ -32,17 +32,18 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<Integer> weekKcal(Date workDate) {
+	public List<Integer> weekKcal(WorkProcessVO oneVO) {
 		
-		return session.selectList(nameSpace+".weekKcal", workDate);
+		return session.selectList(nameSpace+".weekKcal", oneVO);
 	}
 
 	@Override
-	public List<DeviceDataVO> dayDeviceData(Date sendTime) {
+	public List<DeviceDataVO> dayDeviceData(WorkProcessVO oneVO) {
 		
-		return session.selectList(nameSpace+".dayDeviceData", sendTime);
+		return session.selectList(nameSpace+".dayDeviceData", oneVO);
 	}
 
+	
 	
 
 }

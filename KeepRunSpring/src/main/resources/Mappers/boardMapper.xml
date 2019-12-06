@@ -5,7 +5,7 @@
 <mapper namespace="org.mybatis.example.boardMapper">
 
 
-	<select id="todayWork" resultType="WorkProcessVO">
+	<select id="lastWork" resultType="WorkProcessVO">
 		<![CDATA[SELECT * FROM w_data where deviceId=#{deviceId} ORDER BY bno DESC LIMIT 0,1]]> 
 	</select>
 
@@ -18,7 +18,7 @@
 	</select>
 	
 	<select id="dayDeviceData" resultType="DeviceDataVO">
-		<![CDATA[SELECT * FROM a_data WHERE DATE(sendTime) = #{sendTime} ORDER BY dno ]]> 
+		<![CDATA[SELECT * FROM a_data WHERE DATE(sendTime) = #{workDate} ORDER BY dno ]]> 
 	</select>
 	
 	

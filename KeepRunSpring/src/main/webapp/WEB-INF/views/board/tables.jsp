@@ -255,17 +255,20 @@
                   </tfoot>
                  
                   <tbody>
+                 <!--  <form action="indexOne" name="workProcessVO"method="post"> -->
                   <c:forEach items="${wList}" var= "WorkProcessVO">
-                    <tr onclick="location.href='indexOne?deviceId=${WorkProcessVO.deviceId}&bno=${WorkProcessVO.bno}&workDate=${WorkProcessVO.workDate}'" style="cursor:hand">
+                 <!--  <tr onclick="javascript:document.workProcessVO.submit();"> -->
+                  <tr onclick="location.href='indexOne?deviceId=${WorkProcessVO.deviceId}&bno=${WorkProcessVO.bno}&workDate=${WorkProcessVO.workDate}'" style="cursor:hand">
                       <td>${WorkProcessVO.workDate}</td>
                       <td>${WorkProcessVO.workTime}</td>
                       <td>${WorkProcessVO.distance}</td>
                       <td>${WorkProcessVO.kcal}</td>
                       <td>${WorkProcessVO.avgHR}</td>
                       <td>${WorkProcessVO.maxHR}</td>
+                      
                     </tr>
                   </c:forEach>
-                                       
+                  <!-- </form>  -->                   
                   </tbody>
                  
                 </table>

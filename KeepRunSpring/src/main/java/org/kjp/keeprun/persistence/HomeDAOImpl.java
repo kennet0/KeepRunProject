@@ -20,9 +20,9 @@ public class HomeDAOImpl implements HomeDAO {
 	}
 
 	@Override
-	public MemberVO loginCheck(MemberVO vo) throws Exception {
+	public MemberVO userInfo(MemberVO vo) throws Exception {
 		
-		return session.selectOne(nameSpace+".loginCheck", vo);
+		return session.selectOne(nameSpace+".userInfo", vo);
 		
 	}
 

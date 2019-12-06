@@ -2,13 +2,12 @@ package org.kjp.keeprun.controller;
 
 
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
+import org.kjp.keeprun.domain.MemberVO;
 import org.kjp.keeprun.domain.WorkProcessVO;
 import org.kjp.keeprun.service.BoardService;
 import org.slf4j.Logger;
@@ -16,7 +15,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
  * Handles requests for the application home page.
@@ -36,33 +36,33 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/index")
-	public void index(Model model, @RequestParam("deviceId") int deviceId) {
+	public void index(HttpServletRequest request, Model model ) {
 		logger.info("BoardIndex");
-		// 3. sql.Date를 이용하여 얻어온 Date
+		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
+        MemberVO userInfo = (MemberVO) flashMap.get("userInfo");
 		
-		Date sqlDate = new java.sql.Date(System.currentTimeMillis());
-
-		model.addAttribute("todayWork", boardService.todayWork(deviceId));
-		model.addAttribute("wList", boardService.wList(deviceId));
-		model.addAttribute("weekKcal", boardService.weekKcal(sqlDate));
-		model.addAttribute("dayDeviceData", boardService.dayDeviceData(sqlDate));
+		model.addAttribute("lastWork", boardService.lastWork(userInfo.getDeviceId()));
+		model.addAttribute("wList", boardService.wList(userInfo.getDeviceId()));
+		model.addAttribute("weekKcal", boardService.weekKcal(boardService.lastWork(userInfo.getDeviceId())));
+		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.lastWork(userInfo.getDeviceId())));
+		
 	
 		
 	}
 	@RequestMapping(value = "/indexOne")
 	public String indexOne(Model model, WorkProcessVO workProcessVO) {
-		logger.info("BoardIndex");
-		model.addAttribute("todayWork", boardService.todayWork(workProcessVO.getDeviceId()));
-		
-		model.addAttribute("weekKcal", boardService.weekKcal(workProcessVO.getWorkDate()));
+	
+		model.addAttribute("lastWork", boardService.lastWork(workProcessVO.getDeviceId()));
+		model.addAttribute("weekKcal", boardService.weekKcal(boardService.lastWork(workProcessVO.getDeviceId())));
 		
 		return "board/index";
 	}
 	
 	
 	@RequestMapping(value = "/tables")
-	public void table(Model model, @RequestParam("deviceId") int deviceId) {
+	public void table(Model model, int deviceId) {
 		logger.info("BoardTables");
+		
 		model.addAttribute("wList", boardService.wList(deviceId));
 		
 	}

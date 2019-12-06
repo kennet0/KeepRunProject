@@ -39,7 +39,7 @@ public class FrontController {
 	public String registerPost(MemberVO vo) throws Exception{
 		logger.info("registerPost");
 		
-		if(homeService.loginCheck(vo)==null) { //Áßº¹¾ÈµÆ´Ù
+		if(homeService.userInfo(vo)==null) { //Áßº¹¾ÈµÆ´Ù
 			logger.info("ok");
 			homeService.register(vo);
 						

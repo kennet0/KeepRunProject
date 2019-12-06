@@ -97,7 +97,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item active">
-        <a class="nav-link" href="tables.jsp?deviceId=${todayWork.deviceId}">
+        <a class="nav-link" href="tables?deviceId=${lastWork.deviceId}">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li>

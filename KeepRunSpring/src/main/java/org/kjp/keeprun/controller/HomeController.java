@@ -31,7 +31,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method=RequestMethod.POST)
 	public String loginPost(MemberVO vo, RedirectAttributes rttr) throws Exception {
 		logger.info("loginPost");
-		MemberVO checkVO = homeService.loginCheck(vo);
+		MemberVO checkVO = homeService.userInfo(vo);
+		
 		
 		if (!checkVO.getUserId().equals(vo.getUserId())) {
 			logger.info("ID가틀렸습니다");
@@ -40,7 +41,11 @@ public class HomeController {
 			logger.info("PW가틀렸습니다");
 			
 		}else {
-			rttr.addAttribute("deviceId", checkVO.getDeviceId());
+			rttr.addFlashAttribute("deviceId", checkVO.getDeviceId());
+			rttr.addFlashAttribute("userInfo", checkVO);
+			
+				
+				
 			return "redirect:/board/index";
 		}
 		

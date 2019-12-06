@@ -10,7 +10,7 @@
     VALUES (#{deviceId},#{userId},#{userPw},#{userHeight},#{userGender},#{userAge},#{userWeight})
   </insert>
  
-  <select id="loginCheck" resultType="MemberVO">
+  <select id="userInfo" resultType="MemberVO">
   	SELECT * FROM user WHERE userId=#{userId}
   </select>
   
