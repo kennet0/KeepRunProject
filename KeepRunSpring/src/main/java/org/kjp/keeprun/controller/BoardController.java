@@ -2,6 +2,7 @@ package org.kjp.keeprun.controller;
 
 
 
+import java.sql.Date;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -41,21 +42,28 @@ public class BoardController {
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
         MemberVO userInfo = (MemberVO) flashMap.get("userInfo");
         int deviceId = userInfo.getDeviceId();
+        Date lastWorkDate = null;
+        for(WorkProcessVO i : boardService.wList(deviceId)) {
+        	lastWorkDate=i.getWorkDate();
+        	break;
+        }
 		
-		model.addAttribute("lastWork", boardService.lastWork(deviceId));
-		model.addAttribute("wList", boardService.wList(deviceId));
-		model.addAttribute("weekKcal", boardService.weekKcal(boardService.lastWork(deviceId)));
-		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.lastWork(deviceId)));
+		model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(deviceId,lastWorkDate));
+//		model.addAttribute("wList", boardService.wList(deviceId));
+		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
+		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
 		
 	
 		
 	}
 	@RequestMapping(value = "/indexOne")
 	public String indexOne(Model model, WorkProcessVO workProcessVO) {
-	
-		model.addAttribute("lastWork", boardService.lastWork(workProcessVO.getDeviceId()));
-		model.addAttribute("weekKcal", boardService.weekKcal(boardService.lastWork(workProcessVO.getDeviceId())));
 		
+		model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate()));
+		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));
+		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));
+		
+	
 		return "board/index";
 	}
 	

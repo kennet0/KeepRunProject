@@ -19,7 +19,7 @@
 		        value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		        
 		<property name="url" 
-		        value="jdbc:log4jdbc:mariadb://192.168.0.3:3306/keeprun"></property>
+		        value="jdbc:log4jdbc:mariadb://bigmit.iptime.org:54000/keeprun"></property>
 		        
 		<property name="username" value="kennet"></property>
 		<property name="password" value="1234"></property>

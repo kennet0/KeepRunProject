@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.kjp.keeprun.domain.DeviceDataVO;
-import org.kjp.keeprun.domain.MemberVO;
+import org.kjp.keeprun.domain.TempVO;
 import org.kjp.keeprun.domain.WorkProcessVO;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +19,9 @@ public class BoardDAOImpl implements BoardDAO {
 
 	
 	@Override
-	public WorkProcessVO lastWork(int deviceId) {
+	public WorkProcessVO dayWorkProcessData(TempVO vo) {
 		// TODO Auto-generated method stub
-		return session.selectOne(nameSpace+ ".lastWork",deviceId);
+		return session.selectOne(nameSpace+ ".dayWorkProcessData",vo);
 	}
 	
 	@Override

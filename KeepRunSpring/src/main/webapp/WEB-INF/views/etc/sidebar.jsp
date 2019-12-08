@@ -97,7 +97,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item active">
-        <a class="nav-link" href="tables?deviceId=${lastWork.deviceId}">
+        <a class="nav-link" href="tables?deviceId=${dayWorkProcessData.deviceId}">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li>

@@ -240,7 +240,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kcal</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">${lastWork.kcal}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.kcal}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -257,7 +257,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Distance</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">${lastWork.distance}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.distance}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -276,7 +276,7 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Average HeartRate</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${lastWork.avgHR}</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${dayWorkProcessData.avgHR}</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
@@ -300,7 +300,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Workout Time</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">${lastWork.workTime}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.workTime}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -450,7 +450,7 @@
   <script src="<c:url value="/resources/js/demo/chart-area-demo.js"/>"></script>
   <script src="<c:url value="/resources/js/demo/chart-pie-demo.js"/>"></script>
   <!--  Map -->
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f57fa8fa300ecc95635927fa47bf6f26"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f4606bd3d5b1a196067643559d14eb2"></script>
   <script src="<c:url value="/resources/js/kakaoMap.js"/>"></script>
 
 

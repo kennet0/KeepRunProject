@@ -9,7 +9,9 @@ import javax.inject.Inject;
 
 import org.kjp.keeprun.domain.DeviceDataVO;
 import org.kjp.keeprun.persistence.BoardDAO;
+import org.kjp.keeprun.persistence.CalculateDAO;
 import org.kjp.keeprun.service.BoardService;
+import org.kjp.keeprun.service.CalculateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -21,12 +23,22 @@ public class testController {
 	BoardDAO boardDao;
 	@Inject
 	BoardService boardService;
+	@Inject
+	CalculateService calculateService;
+	@Inject
+	CalculateDAO calculateDAO;
 	
 	private static final Logger logger = LoggerFactory.getLogger(testController.class);
 	
 	@RequestMapping(value = "/test")
-	public void login() {
-	
+	public void test() {
+		logger.info("test");
+		double workTime=calculateDAO.calWorkTime(1);
+		logger.info(Double.toString(workTime));
+		double workDistance=calculateDAO.calDistance(1);
+		logger.info(Double.toString(workDistance));
+		double avgHR=calculateDAO.calAvgHR(1);
+		logger.info(Double.toString(avgHR));
 	   
     }
    

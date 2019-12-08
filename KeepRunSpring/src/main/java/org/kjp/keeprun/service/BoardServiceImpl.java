@@ -1,11 +1,13 @@
 package org.kjp.keeprun.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.kjp.keeprun.domain.DeviceDataVO;
 import org.kjp.keeprun.domain.MemberVO;
+import org.kjp.keeprun.domain.TempVO;
 import org.kjp.keeprun.domain.WorkProcessVO;
 import org.kjp.keeprun.persistence.BoardDAO;
 import org.springframework.stereotype.Service;
@@ -18,13 +20,17 @@ public class BoardServiceImpl implements BoardService {
 	
 			
 	@Override
-	public WorkProcessVO lastWork(int deviceId) {
-		
-		return boardDAO.lastWork(deviceId);
+	public WorkProcessVO dayWorkProcessData(int deviceId, Date lastWorkDate) {
+		TempVO vo = new TempVO();
+		vo.setDeviceId(deviceId);
+		vo.setLastWorkDate(lastWorkDate);
+				
+		return boardDAO.dayWorkProcessData(vo);
 	}
 			
 	@Override
 	public List<WorkProcessVO> wList(int deviceId) {
+		
 		
 		return boardDAO.wList(deviceId);
 	}

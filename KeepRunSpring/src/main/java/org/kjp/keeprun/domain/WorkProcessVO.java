@@ -26,6 +26,7 @@ public class WorkProcessVO {
 	public void setDistance(int distance) {
 		this.distance = distance;
 	}
+	
 	public int getKcal() {
 		return kcal;
 	}
