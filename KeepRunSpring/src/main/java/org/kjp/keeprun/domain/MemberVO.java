@@ -8,7 +8,7 @@ public class MemberVO {
 	private String userGender;
 	private int userAge;
 	private int userWeight;
-	private int userSetWeight;
+	private int userCurrentWeight;
 	
 	public int getDeviceId() {
 		return deviceId;
@@ -52,17 +52,17 @@ public class MemberVO {
 	public void setUserWeight(int userWeight) {
 		this.userWeight = userWeight;
 	}
-	public int getUserSetWeight() {
-		return userSetWeight;
+	public int getUserCurrentWeight() {
+		return userCurrentWeight;
 	}
-	public void setUserSetWeight(int userSetWeight) {
-		this.userSetWeight = userSetWeight;
+	public void setUserCurrentWeight(int userCurrentWeight) {
+		this.userCurrentWeight = userCurrentWeight;
 	}
 	@Override
 	public String toString() {
 		return "MemberVO [deviceId=" + deviceId + ", userId=" + userId + ", userPw=" + userPw + ", userHeight="
-				+ userHeight + ", userGender=" + userGender + ", Age=" + userAge + ", userWeight=" + userWeight + ", userSetWeight="
-				+ userSetWeight + "]";
+				+ userHeight + ", userGender=" + userGender + ", Age=" + userAge + ", userWeight=" + userWeight + ", userCurrentWeight="
+				+ userCurrentWeight + "]";
 	}
 	
 

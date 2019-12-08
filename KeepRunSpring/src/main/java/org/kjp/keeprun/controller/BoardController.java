@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.kjp.keeprun.domain.MemberVO;
 import org.kjp.keeprun.domain.WorkProcessVO;
 import org.kjp.keeprun.service.BoardService;
+import org.kjp.keeprun.service.HomeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ public class BoardController {
 	
 	@Inject
 	BoardService boardService;
+	@Inject
+	HomeService homeService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
@@ -48,13 +51,13 @@ public class BoardController {
 //		model.addAttribute("wList", boardService.wList(deviceId));
 		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
 		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
-		
+		model.addAttribute("userInfo", userInfo);
 	
 		
 	}
 	@RequestMapping(value = "/indexOne")
 	public String indexOne(Model model, WorkProcessVO workProcessVO) {
-		
+				
 		model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate()));
 		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));
 		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));

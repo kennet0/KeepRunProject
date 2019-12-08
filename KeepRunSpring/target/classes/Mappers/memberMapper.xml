@@ -6,8 +6,8 @@
 
 
   <insert id="register">
-    INSERT INTO user(deviceId, userId, userPw, userHeight, userGender, userAge, userWeight) 
-    VALUES (#{deviceId},#{userId},#{userPw},#{userHeight},#{userGender},#{userAge},#{userWeight})
+    INSERT INTO user(deviceId, userId, userPw, userHeight, userGender, userAge, userWeight, userCurrentWeight) 
+    VALUES (#{deviceId},#{userId},#{userPw},#{userHeight},#{userGender},#{userAge},#{userWeight}, #{userWeight})
   </insert>
  
   <select id="userInfo" resultType="MemberVO">

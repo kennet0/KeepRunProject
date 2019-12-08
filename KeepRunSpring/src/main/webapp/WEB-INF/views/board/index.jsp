@@ -38,7 +38,7 @@
       <!-- Main Content -->
       <div id="content">
 
-        <!-- Topbar -->
+        <%-- <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
@@ -99,10 +99,10 @@
                       <i class="fas fa-file-alt text-white"></i>
                     </div>
                   </div>
-                  <div>
+                  <!-- <div>
                     <div class="small text-gray-500">December 12, 2019</div>
                     <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
+                  </div> -->
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="mr-3">
@@ -110,10 +110,10 @@
                       <i class="fas fa-donate text-white"></i>
                     </div>
                   </div>
-                  <div>
+                 <!--  <div>
                     <div class="small text-gray-500">December 7, 2019</div>
                     $290.29 has been deposited into your account!
-                  </div>
+                  </div> -->
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="mr-3">
@@ -121,10 +121,10 @@
                       <i class="fas fa-exclamation-triangle text-white"></i>
                     </div>
                   </div>
-                  <div>
+                  <!-- <div>
                     <div class="small text-gray-500">December 2, 2019</div>
                     Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
+                  </div> -->
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
@@ -147,40 +147,40 @@
                     <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
-                  <div class="font-weight-bold">
+                  <!-- <div class="font-weight-bold">
                     <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
                     <div class="small text-gray-500">Emily Fowler � 58m</div>
-                  </div>
+                  </div> -->
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
                     <div class="status-indicator"></div>
                   </div>
-                  <div>
+                 <!--  <div>
                     <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
                     <div class="small text-gray-500">Jae Chun � 1d</div>
-                  </div>
+                  </div> -->
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
                     <div class="status-indicator bg-warning"></div>
                   </div>
-                  <div>
+                 <!--  <div>
                     <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
                     <div class="small text-gray-500">Morgan Alvarez � 2d</div>
-                  </div>
+                  </div> -->
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
-                  <div>
+                 <!--  <div>
                     <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
                     <div class="small text-gray-500">Chicken the Dog � 2w</div>
-                  </div>
+                  </div> -->
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
@@ -191,7 +191,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">${dayWorkProcessData.deviceId}</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -219,13 +219,15 @@
           </ul>
 
         </nav>
-        <!-- End of Topbar -->
+        <!-- End of Topbar --> --%>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
+          
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
+         
             <h1 class="h3 mb-0 text-gray-800">Last WorkOut Data</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
@@ -240,7 +242,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kcal</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.kcal}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.kcal} kcal</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -257,7 +259,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Distance</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.distance}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.distance} m</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -276,12 +278,12 @@
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Average HeartRate</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${dayWorkProcessData.avgHR}</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${dayWorkProcessData.avgHR} bpm</div>
                         </div>
                         <div class="col">
-                          <div class="progress progress-sm mr-2">
+                         <!--  <div class="progress progress-sm mr-2">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -300,7 +302,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Workout Time</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.workTime}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.workTime} Minutes</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -349,22 +351,27 @@
             </div>
 
             <!-- Pie Chart -->
+            
+         
+            
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Remaining Weight</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                       <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Target Weight:<input type="text" id="targetWeight" value="0" style="width:40px; height:20px;"></a>
+                      <a class="dropdown-item" href="#">Current Weight:<input type="text" id="currentWeight"  value="${userInfo.userCurrentWeight}" style="width:40px; height:20px;"></a>
+                      <input type="hidden" id="startWeight"  value="${userInfo.userWeight}" style="width:40px; height:20px;"></a>
+                     <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    </div> 
+                    
                   </div>
                 </div>
                 <!-- Card Body -->
@@ -374,14 +381,14 @@
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
+                      <i class="fas fa-circle text-primary"></i>Target Weight
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
+                      <i class="fas fa-circle text-success"></i>Current Weight
                     </span>
-                    <span class="mr-2">
+                    <!-- <span class="mr-2">
                       <i class="fas fa-circle text-info"></i> Referral
-                    </span>
+                    </span> -->
                   </div>
                 </div>
               </div>
@@ -452,6 +459,7 @@
   <!--  Map -->
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f4606bd3d5b1a196067643559d14eb2"></script>
   <script src="<c:url value="/resources/js/kakaoMap.js"/>"></script>
+  <script src="<c:url value="/resources/js/AjaxScript.js"/>"></script>
 
 
 </body>
