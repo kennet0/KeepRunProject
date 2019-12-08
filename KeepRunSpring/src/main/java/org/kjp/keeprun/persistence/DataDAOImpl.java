@@ -12,11 +12,11 @@ import org.kjp.keeprun.domain.WorkProcessVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CalculateDAOImpl implements CalculateDAO {
+public class DataDAOImpl implements DataDAO {
 	
 	@Inject
 	private SqlSession session;
-	static final String nameSpace = "org.mybatis.example.calculateMapper";
+	static final String nameSpace = "org.mybatis.example.dataMapper";
 
 	@Override
 	public int calWorkTime(int deviceId) {
@@ -71,6 +71,18 @@ public class CalculateDAOImpl implements CalculateDAO {
 	public void insertDayWorkProcess(WorkProcessVO workProcessVO) {
 		
 		session.insert(nameSpace + ".insertDayWorkProcess", workProcessVO);
+	}
+	
+	@Override
+	public void insertA_data(DeviceDataVO deviceDataVO) {
+		session.insert(nameSpace + ".a_dataInsert", deviceDataVO);
+		
+	}
+
+	@Override
+	public List<MemberVO> userInfo() {
+		
+		return session.selectList(nameSpace + ".userInfo");
 	}
 	
 	

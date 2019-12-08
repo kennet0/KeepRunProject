@@ -2,17 +2,24 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.mybatis.example.calculateMapper">
+<mapper namespace="org.mybatis.example.dataMapper">
 
 	<select id="dailyDeviceData" resultType="DeviceDataVO">
 		<![CDATA[SELECT * FROM a_data WHERE deviceId=#{deviceId} and DATE(sendTime) = DATE('2019-12-05')]]> 
 	</select>
+	
 	<insert id ="insertDayWorkProcess">
 		<![CDATA[INSERT INTO w_data(deviceId, DISTANCE, kcal, avgHR, maxHR, workTime) 
 					VALUES(#{deviceId},#{distance},#{kcal},#{avgHR},#{maxHR},#{workTime});]]> 
 	</insert>
-	
-	
+ 	<insert id="a_dataInsert">
+ 		<![CDATA[INSERT INTO a_data(deviceId, userHR, gpsLatitude,gpsLongitude) 
+					VALUES(#{deviceId},#{userHR},#{gpsLatitude},#{gpsLongitude})]]> 
+ 	</insert>
+ 	
+ 	<select id="userInfo" resultType="MemberVO">
+ 	 	SELECT * FROM user;
+ 	</select>
 	
 	
 	

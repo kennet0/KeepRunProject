@@ -31,10 +31,6 @@ public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	
 	
 	@RequestMapping(value = "/index")
 	public void index(HttpServletRequest request, Model model ) {

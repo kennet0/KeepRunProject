@@ -20,10 +20,8 @@ public class FrontController {
 	@Inject
 	HomeService homeService;
 	
-	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-
 	@RequestMapping(value = "/index")
 	public void index() {
 		logger.info("index");

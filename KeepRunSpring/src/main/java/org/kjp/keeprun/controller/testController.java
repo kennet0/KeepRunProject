@@ -9,9 +9,9 @@ import javax.inject.Inject;
 
 import org.kjp.keeprun.domain.DeviceDataVO;
 import org.kjp.keeprun.persistence.BoardDAO;
-import org.kjp.keeprun.persistence.CalculateDAO;
+import org.kjp.keeprun.persistence.DataDAO;
 import org.kjp.keeprun.service.BoardService;
-import org.kjp.keeprun.service.CalculateService;
+import org.kjp.keeprun.service.DataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,9 +24,9 @@ public class testController {
 	@Inject
 	BoardService boardService;
 	@Inject
-	CalculateService calculateService;
+	DataService calculateService;
 	@Inject
-	CalculateDAO calculateDAO;
+	DataDAO calculateDAO;
 	
 	private static final Logger logger = LoggerFactory.getLogger(testController.class);
 	

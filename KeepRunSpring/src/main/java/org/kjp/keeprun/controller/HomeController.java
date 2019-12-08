@@ -5,7 +5,8 @@ package org.kjp.keeprun.controller;
 import javax.inject.Inject;
 
 import org.kjp.keeprun.domain.MemberVO;
-import org.kjp.keeprun.service.CalculateService;
+import org.kjp.keeprun.service.DataService;
+import org.kjp.keeprun.service.DataService;
 import org.kjp.keeprun.service.HomeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +20,10 @@ public class HomeController {
 	
 	@Inject
 	HomeService homeService;
-	
+
+			
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	
 	@RequestMapping(value = "/")
 	public String login() {
@@ -46,6 +49,9 @@ public class HomeController {
 			rttr.addFlashAttribute("deviceId", checkVO.getDeviceId());
 			rttr.addFlashAttribute("userInfo", checkVO);
 			
+			
+				
+				
 			return "redirect:/board/index";
 		}
 		
