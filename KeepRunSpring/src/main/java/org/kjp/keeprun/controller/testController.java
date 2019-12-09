@@ -25,21 +25,13 @@ public class testController {
 	BoardService boardService;
 	@Inject
 	DataService calculateService;
-	@Inject
-	DataDAO calculateDAO;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(testController.class);
 	
 	@RequestMapping(value = "/test")
 	public void test() {
-		logger.info("test");
-		double workTime=calculateDAO.calWorkTime(1);
-		logger.info(Double.toString(workTime));
-		double workDistance=calculateDAO.calDistance(1);
-		logger.info(Double.toString(workDistance));
-		double avgHR=calculateDAO.calAvgHR(1);
-		logger.info(Double.toString(avgHR));
-	   
+	
     }
    
 

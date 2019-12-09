@@ -26,12 +26,15 @@ public class DataController {
 	@RequestMapping(value= "/dataUpdate")
 	public void dataUpdate(HttpServletRequest request) {
 		logger.info("dataUpdate");
+		logger.info(request.getParameter("deviceID"));
 		int deviceId = Integer.parseInt(request.getParameter("deviceID"));
-		int userHR = Integer.parseInt(request.getParameter("userHR"));
-		double gpsLatitude=Double.parseDouble("gpsLatitude");
-		double gpsLongitude=Double.parseDouble("gpsLongitude");
-				
-	
+		int userHR = 0;
+		double gpsLatitude=0;
+		double gpsLongitude=0;
+		if(request.getParameter("userHR")!=null) {userHR = Integer.parseInt(request.getParameter("userHR"));}
+		if(request.getParameter("gpsLatitude")!=null) {gpsLatitude=Double.parseDouble("gpsLatitude");}
+		if(request.getParameter("gpsLongitude")!=null) {gpsLongitude=Double.parseDouble("gpsLongitude");}
+		
 		
 		if(request.getParameter("deviceID")!=null) {
 			if(request.getParameter("gpsLatitude")!=null && request.getParameter("gpsLatitude")!=null) {
@@ -41,33 +44,15 @@ public class DataController {
 				deviceDataVO.setGpsLatitude(gpsLatitude);
 				deviceDataVO.setGpsLongitude(gpsLongitude);
 				dataService.insertA_data(deviceDataVO);
+				logger.info("Data DB In");
+				
 			}else {
 				DeviceDataVO deviceDataVO = new DeviceDataVO();
 				deviceDataVO.setDeviceId(deviceId);
 				deviceDataVO.setUserHR(userHR);
 				dataService.insertA_data(deviceDataVO);
-			}
-				
-		}
-		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-		Date now = new Date();
-		String nowCompareTime = format.format(now);
-		
-		if(nowCompareTime.equals("23:59:59")) {
-			logger.info(nowCompareTime);
-			for(MemberVO i:dataService.userInfo()) {
-				dataService.workTimeCalculator(i.getDeviceId());
-				
+				logger.info("HR DB In");
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
 	}
-
-
 }

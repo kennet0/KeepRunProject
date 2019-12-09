@@ -49,13 +49,11 @@ public class HomeController {
 			rttr.addFlashAttribute("deviceId", checkVO.getDeviceId());
 			rttr.addFlashAttribute("userInfo", checkVO);
 			
-			
-				
-				
 			return "redirect:/board/index";
 		}
 		
 		return "404";
 	}
 }
+
 

@@ -7,8 +7,7 @@ import org.kjp.keeprun.domain.MemberVO;
 
 public interface DataService {
 	
-	public void workTimeCalculator(int deviceId);
+
 	public void insertA_data(DeviceDataVO deviceDataVO);
-	public List<MemberVO> userInfo();
 
 }

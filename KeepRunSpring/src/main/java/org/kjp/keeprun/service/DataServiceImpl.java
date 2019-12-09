@@ -17,36 +17,11 @@ public class DataServiceImpl implements DataService {
 
 	@Inject
 	DataDAO dataDAO;
-	
-	@Override
-	public void workTimeCalculator(int deviceId) {
-		
-		
-		int workTime=dataDAO.calWorkTime(deviceId);
-		int distance=dataDAO.calDistance(deviceId);
-		int avgHR=dataDAO.calAvgHR(deviceId);
-		
-		WorkProcessVO workProcessVO = new WorkProcessVO();
-		workProcessVO.setDeviceId(deviceId);
-		workProcessVO.setWorkTime(workTime);
-		workProcessVO.setDistance(distance);
-		
-		
-		dataDAO.insertDayWorkProcess(workProcessVO);
-	
-	}
-	
+
 	@Override
 	public void insertA_data(DeviceDataVO deviceDataVO) {
 	
 		dataDAO.insertA_data(deviceDataVO);
 	}
-
-	@Override
-	public List<MemberVO> userInfo() {
-		
-		return dataDAO.userInfo();
-	}
-
 
 }
