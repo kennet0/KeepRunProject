@@ -20,10 +20,16 @@ public class HomeDAOImpl implements HomeDAO {
 	}
 
 	@Override
-	public MemberVO userInfo(MemberVO vo) throws Exception {
+	public MemberVO userInfoById(MemberVO vo) throws Exception {
 		
-		return session.selectOne(nameSpace+".userInfo", vo);
+		return session.selectOne(nameSpace+".userInfoById", vo);
 		
+	}
+
+	@Override
+	public MemberVO userInfoByDeviceId(int deviceId) {
+		
+		return session.selectOne(nameSpace+".userInfoByDeviceId", deviceId);
 	}
 
 }

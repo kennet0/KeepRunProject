@@ -10,8 +10,12 @@
     VALUES (#{deviceId},#{userId},#{userPw},#{userHeight},#{userGender},#{userAge},#{userWeight}, #{userWeight})
   </insert>
  
-  <select id="userInfo" resultType="MemberVO">
+  <select id="userInfoById" resultType="MemberVO">
   	SELECT * FROM user WHERE userId=#{userId}
+  </select>
+  
+  <select id="userInfoByDeviceId" resultType="MemberVO">
+  	SELECT * FROM user WHERE deviceId=#{deviceId}
   </select>
   
 </mapper>

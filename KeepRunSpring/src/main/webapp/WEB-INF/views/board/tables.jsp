@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>KeepRun - Login</title>s
 
   <!-- Custom fonts for this template-->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -74,18 +74,7 @@
                   </tfoot>
                  
                   <tbody>
-                  <script>
-				  	function goPage(deviceId,bno,workDate) {
-					var f = document.paging;
-						f.deviceId.value=deviceId;
-						f.bno.value=bno;
-						f.workDate.value=workDate;
-						f.action = "./indexOne"
-						f.method = "post"
-						f.submit();
-					};
-				</script>                  
-                  
+                   
                  <!--  <form action="indexOne" name="workProcessVO"method="post"> -->
                   <c:forEach items="${wList}" var= "WorkProcessVO">
                  <!--  <tr onclick="javascript:document.workProcessVO.submit();"> -->
@@ -94,7 +83,7 @@
                  <input type="hidden" name="bno"/>
                  <input type="hidden" name="workDate"/>
                  </form>
-                  <tr onclick="location.href='javascript:goPage('${WorkProcessVO.deviceId},'${WorkProcessVO.bno}','${WorkProcessVO.workDate}');'">
+                  <tr onclick="location.href='indexOne?deviceId=${WorkProcessVO.deviceId}&workDate=${WorkProcessVO.workDate}'">
                       <td>${WorkProcessVO.workDate}</td>
                       <td>${WorkProcessVO.workTime}</td>
                       <td>${WorkProcessVO.distance}</td>

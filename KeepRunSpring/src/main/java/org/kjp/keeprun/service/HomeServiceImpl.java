@@ -21,9 +21,15 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public MemberVO userInfo(MemberVO vo) throws Exception {
+	public MemberVO userInfoById(MemberVO vo) throws Exception {
 			
-		return dao.userInfo(vo);
+		return dao.userInfoById(vo);
+	}
+
+	@Override
+	public MemberVO userInfoByDeviceId(int deviceId) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userInfoByDeviceId(deviceId);
 	}
 
 }

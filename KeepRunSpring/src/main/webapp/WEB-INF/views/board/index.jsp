@@ -13,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>KeepRun - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -45,8 +45,8 @@
           
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
          
-            <h1 class="h3 mb-0 text-gray-800">Last WorkOut Data</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <h1 class="h3 mb-0 text-gray-800">${dayWorkProcessData.workDate} WorkOut Data</h1>
+           <!--  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
 
           <!-- Content Row -->
@@ -145,7 +145,7 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Week Burned Kcal</h6>
-                  <div class="dropdown no-arrow">
+                <!--   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
@@ -156,7 +156,7 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -186,6 +186,7 @@
 	                      <input type="hidden" id="startWeight" name="startWeight"  value="${userInfo.userWeight}" style="width:40px; height:20px;"></a>
 	                      <a class="dropdown-item" href="#"> <input type="button" onclick="changeValue();" style="width:100px; height:30px;"></a>
 	                   </div>
+	                 
                     
                      <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Something else here</a>
@@ -281,6 +282,7 @@
   <script src="<c:url value="/resources/js/kakaoMap.js"/>"></script>
   <script src="<c:url value="/resources/js/AjaxScript.js"/>"></script>
     <script>
+   	 		chartPie();
             function changeValue() {
             	document.getElementById("targetWeight").value=document.getElementById("targetWeight").value;
     			document.getElementById("currentWeight").value=document.getElementById("currentWeight").value;

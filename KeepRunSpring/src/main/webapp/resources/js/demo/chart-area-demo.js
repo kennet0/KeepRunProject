@@ -44,7 +44,7 @@ console.log(kcal[6]);
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Mon","Tue","Wed","Thr","Fri","Sat","Sun"],
+    labels: ["Sun","Mon","Tue","Wed","Thr","Fri","Sat"],
     datasets: [{
       label: "kcal",
       lineTension: 0.3,
@@ -58,7 +58,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [kcal[0], kcal[1], kcal[2], kcal[3], kcal[4], kcal[5], kcal[6]],
+      data: [kcal[6], kcal[5], kcal[4], kcal[3], kcal[2], kcal[1], kcal[0]],
     }],
   },
   options: {
@@ -90,7 +90,7 @@ var myLineChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return number_format(value);
           }
         },
         gridLines: {
@@ -122,7 +122,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return number_format(tooltipItem.yLabel) + " kcal";
         }
       }
     }

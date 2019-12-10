@@ -11,6 +11,7 @@ import org.kjp.keeprun.service.HomeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -36,7 +37,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method=RequestMethod.POST)
 	public String loginPost(MemberVO vo, RedirectAttributes rttr) throws Exception {
 		logger.info("loginPost");
-		MemberVO checkVO = homeService.userInfo(vo);
+		MemberVO checkVO = homeService.userInfoById(vo);
 		
 		
 		if (!checkVO.getUserId().equals(vo.getUserId())) {
@@ -46,8 +47,10 @@ public class HomeController {
 			logger.info("PW가틀렸습니다");
 			
 		}else {
-			rttr.addFlashAttribute("deviceId", checkVO.getDeviceId());
-			rttr.addFlashAttribute("userInfo", checkVO);
+			rttr.addAttribute("deviceId", checkVO.getDeviceId());
+			rttr.addAttribute("userWeight", checkVO.getUserWeight());
+			rttr.addAttribute("userCurrentWeight", checkVO.getUserCurrentWeight());
+//			rttr.addAttribute("userInfo", checkVO);
 			
 			return "redirect:/board/index";
 		}

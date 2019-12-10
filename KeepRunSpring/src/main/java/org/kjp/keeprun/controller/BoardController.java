@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
@@ -36,17 +37,15 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/index")
-	public void index(HttpServletRequest request, Model model ) {
+	public void index(MemberVO userInfo, Model model ) {
 		logger.info("BoardIndex");
-		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
-        MemberVO userInfo = (MemberVO) flashMap.get("userInfo");
+//		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
+//        MemberVO userInfo = (MemberVO) flashMap.get("userInfo");
+        
+        
         int deviceId = userInfo.getDeviceId();
-        Date lastWorkDate = null;
-        for(WorkProcessVO i : boardService.wList(deviceId)) {
-        	lastWorkDate=i.getWorkDate();
-        	break;
-        }
-		
+        Date lastWorkDate = boardService.wList(deviceId).get(0).getWorkDate();
+       
 		model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(deviceId,lastWorkDate));
 //		model.addAttribute("wList", boardService.wList(deviceId));
 		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
@@ -56,12 +55,12 @@ public class BoardController {
 		
 	}
 	@RequestMapping(value = "/indexOne")
-	public String indexOne(Model model, WorkProcessVO workProcessVO) {
+	public String indexOne(Model model, WorkProcessVO workProcessVO) throws Exception {
 				
 		model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate()));
 		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));
 		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));
-		
+		model.addAttribute("userInfo", homeService.userInfoByDeviceId(workProcessVO.getDeviceId()));
 	
 		return "board/index";
 	}
