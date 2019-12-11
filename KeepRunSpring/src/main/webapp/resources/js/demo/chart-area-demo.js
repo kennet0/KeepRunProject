@@ -38,9 +38,6 @@ for(var i=0; i<7;i++){
   }
 }
 
-console.log(kcal[6]);
-
-
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {

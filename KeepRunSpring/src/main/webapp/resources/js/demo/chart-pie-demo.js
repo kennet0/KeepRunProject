@@ -10,8 +10,7 @@ Chart.defaults.global.defaultFontColor = '#858796';
   var currentWeight= parseInt(document.getElementById("currentWeight").value);
   var startWeight= parseInt(document.getElementById("startWeight").value);
     
-    console.log(document.getElementById("currentWeight").value);
-
+ 
 
   var myPieChart = new Chart(ctx, {
     type: 'doughnut',

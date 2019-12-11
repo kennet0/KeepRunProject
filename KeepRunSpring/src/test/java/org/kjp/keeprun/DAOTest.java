@@ -31,7 +31,7 @@ public class DAOTest {
 	public void create() throws Exception{
 		
 		MemberVO vo = new MemberVO();
-		vo.setAge(3);
+	;
 		vo.setUserHeight(10);
 		
 		vo.setDeviceId(10);

@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 
 
 <!DOCTYPE html>
@@ -58,8 +58,10 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kcal</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.kcal} kcal</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Work Intensity (60%~75% is good)</div>
+                      <input type="hidden" id="workIntensity" value="${dayWorkProcessData.workIntensity}">
+                        <script src="<c:url value="/resources/js/workIntensityIf.js"/>"></script>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dayWorkProcessData.workIntensity} % <br><script>resultStatus();</script> </div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -180,16 +182,19 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                       <div class="dropdown-header">Dropdown Header:</div>
+                      <form method=post>
                       <div id="weight">
-	                      <a class="dropdown-item" href="#">Target Weight:<input type="text" id="targetWeight" value="0" style="width:40px; height:20px;"></a>
-	                      <a class="dropdown-item" href="#">Current Weight:<input type="text" id="currentWeight" name="currentWeight"  value="${userInfo.userCurrentWeight}" style="width:40px; height:20px;"></a>
+                          <a class="dropdown-item" href="#">Target Weight:<input type="text" id="targetWeight" name="userTargetWeight" value="${userInfo.userTargetWeight}" style="width:40px; height:20px;"></a>
+	                      <a class="dropdown-item" href="#">Current Weight:<input type="text" id="currentWeight" name="userCurrentWeight"  value="${userInfo.userCurrentWeight}" style="width:40px; height:20px;"></a>
 	                      <input type="hidden" id="startWeight" name="startWeight"  value="${userInfo.userWeight}" style="width:40px; height:20px;"></a>
-	                      <a class="dropdown-item" href="#"> <input type="button" onclick="changeValue();" style="width:100px; height:30px;"></a>
+	                       <input type="hidden" name="deviceId"  value="${userInfo.deviceId}" style="width:40px; height:20px;"></a>
+	                      <a class="dropdown-item" href="#"> <input type="submit" style="width:120px; height:20px;" value="Confirm"></a>
 	                   </div>
+	                   </form>
 	                 
                     
                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                     <!--  <a class="dropdown-item" href="#">Something else here</a> -->
                     </div> 
                     
                   </div>
@@ -280,8 +285,8 @@
   <!--  Map -->
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f4606bd3d5b1a196067643559d14eb2"></script>
   <script src="<c:url value="/resources/js/kakaoMap.js"/>"></script>
-  <script src="<c:url value="/resources/js/AjaxScript.js"/>"></script>
-    <script>
+  
+  <script>
    	 		chartPie();
             function changeValue() {
             	document.getElementById("targetWeight").value=document.getElementById("targetWeight").value;

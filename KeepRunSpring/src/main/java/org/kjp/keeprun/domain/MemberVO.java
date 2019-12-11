@@ -9,7 +9,7 @@ public class MemberVO {
 	private int userAge;
 	private int userWeight;
 	private int userCurrentWeight;
-	
+	private int userTargetWeight;
 	public int getDeviceId() {
 		return deviceId;
 	}
@@ -43,8 +43,8 @@ public class MemberVO {
 	public int getUserAge() {
 		return userAge;
 	}
-	public void setAge(int userAge) {
-		userAge = userAge;
+	public void setUserAge(int userAge) {
+		this.userAge = userAge;
 	}
 	public int getUserWeight() {
 		return userWeight;
@@ -58,11 +58,17 @@ public class MemberVO {
 	public void setUserCurrentWeight(int userCurrentWeight) {
 		this.userCurrentWeight = userCurrentWeight;
 	}
+	public int getUserTargetWeight() {
+		return userTargetWeight;
+	}
+	public void setUserTargetWeight(int userTargetWeight) {
+		this.userTargetWeight = userTargetWeight;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [deviceId=" + deviceId + ", userId=" + userId + ", userPw=" + userPw + ", userHeight="
-				+ userHeight + ", userGender=" + userGender + ", Age=" + userAge + ", userWeight=" + userWeight + ", userCurrentWeight="
-				+ userCurrentWeight + "]";
+				+ userHeight + ", userGender=" + userGender + ", userAge=" + userAge + ", userWeight=" + userWeight
+				+ ", userCurrentWeight=" + userCurrentWeight + ", userTargetWeight=" + userTargetWeight + "]";
 	}
 	
 

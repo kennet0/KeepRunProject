@@ -8,12 +8,10 @@ public class WorkProcessVO {
 	private int distance;
 	private int kcal;
 	private int avgHR;
-	private int maxHR;
+	private int workIntensity;
 	private int workTime;
 	private Date workDate;
 	private int bno;
-	
-	
 	public int getDeviceId() {
 		return deviceId;
 	}
@@ -26,7 +24,6 @@ public class WorkProcessVO {
 	public void setDistance(int distance) {
 		this.distance = distance;
 	}
-	
 	public int getKcal() {
 		return kcal;
 	}
@@ -39,11 +36,11 @@ public class WorkProcessVO {
 	public void setAvgHR(int avgHR) {
 		this.avgHR = avgHR;
 	}
-	public int getMaxHR() {
-		return maxHR;
+	public int getWorkIntensity() {
+		return workIntensity;
 	}
-	public void setMaxHR(int maxHR) {
-		this.maxHR = maxHR;
+	public void setWorkIntensity(int workIntensity) {
+		this.workIntensity = workIntensity;
 	}
 	public int getWorkTime() {
 		return workTime;
@@ -57,12 +54,18 @@ public class WorkProcessVO {
 	public void setWorkDate(Date workDate) {
 		this.workDate = workDate;
 	}
-	
 	public int getBno() {
 		return bno;
 	}
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
+	@Override
+	public String toString() {
+		return "WorkProcessVO [deviceId=" + deviceId + ", distance=" + distance + ", kcal=" + kcal + ", avgHR=" + avgHR
+				+ ", workIntensity=" + workIntensity + ", workTime=" + workTime + ", workDate=" + workDate + ", bno="
+				+ bno + "]";
+	}
+	
 
 }

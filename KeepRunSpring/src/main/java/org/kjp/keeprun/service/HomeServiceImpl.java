@@ -32,4 +32,10 @@ public class HomeServiceImpl implements HomeService{
 		return dao.userInfoByDeviceId(deviceId);
 	}
 
+	@Override
+	public void updatePieWeight(MemberVO userInfo) {
+		dao.updatePieWeight(userInfo);
+		
+	}
+
 }

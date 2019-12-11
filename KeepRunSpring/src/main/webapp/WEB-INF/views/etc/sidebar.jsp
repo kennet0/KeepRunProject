@@ -15,7 +15,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index">
+        <a class="nav-link" href="index?deviceId=${userInfo.deviceId}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -97,7 +97,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item active">
-        <a class="nav-link" href="tables?deviceId=${dayWorkProcessData.deviceId}">
+        <a class="nav-link" href="tables?deviceId=${userInfo.deviceId}">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li>

@@ -48,10 +48,7 @@ public class HomeController {
 			
 		}else {
 			rttr.addAttribute("deviceId", checkVO.getDeviceId());
-			rttr.addAttribute("userWeight", checkVO.getUserWeight());
-			rttr.addAttribute("userCurrentWeight", checkVO.getUserCurrentWeight());
-//			rttr.addAttribute("userInfo", checkVO);
-			
+						
 			return "redirect:/board/index";
 		}
 		

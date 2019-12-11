@@ -32,4 +32,10 @@ public class HomeDAOImpl implements HomeDAO {
 		return session.selectOne(nameSpace+".userInfoByDeviceId", deviceId);
 	}
 
+	@Override
+	public void updatePieWeight(MemberVO userInfo) {
+		session.update(nameSpace+".updatePieWeight", userInfo);
+		
+	}
+
 }

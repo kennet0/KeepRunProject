@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.kjp.keeprun.domain.DeviceDataVO;
+import org.kjp.keeprun.domain.MemberVO;
 
 
 public class DataCalculator {
@@ -52,6 +53,52 @@ public int calWorkTime(List<DeviceDataVO> listData) {
 		
 		return sumHR/listData.size();
 	}
+	
+	public int calWorkIntensity(MemberVO user, List<DeviceDataVO> listData) {
+		int calmHR=0;
+		//남자
+		if(user.getUserGender().equals("M")) {
+			if(user.getUserAge()<26) {
+				calmHR=72;
+			}else if(user.getUserAge()>=26 && user.getUserAge()<36) {
+				calmHR=73;
+			}else if(user.getUserAge()>=36 && user.getUserAge()<46) {
+				calmHR=74;
+			}else if(user.getUserAge()>=46 && user.getUserAge()<56) {
+				calmHR=75;
+			}else if(user.getUserAge()>=56 && user.getUserAge()<66) {
+				calmHR=76;
+			}else {
+				calmHR=72;
+			}
+		}
+		//여자
+		if(user.getUserGender().equals("F")) {
+			if(user.getUserAge()<26) {
+				calmHR=76;
+			}else if(user.getUserAge()>=26 && user.getUserAge()<36) {
+				calmHR=75;
+			}else if(user.getUserAge()>=36 && user.getUserAge()<46) {
+				calmHR=76;
+			}else if(user.getUserAge()>=46 && user.getUserAge()<56) {
+				calmHR=72;
+			}else if(user.getUserAge()>=56 && user.getUserAge()<66) {
+				calmHR=76;
+			}else {
+				calmHR=75;
+			}
+		}
+				
+		return 100*calAvgHR(listData)/(220-user.getUserAge())-calmHR;
+	}
+	
+	public int calKcal(MemberVO user,List<DeviceDataVO> listData) {
+		
+		
+		return user.getUserCurrentWeight()-calWorkTime(listData);
+	}
+	
+	
 
 
 }

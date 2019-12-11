@@ -18,4 +18,8 @@
   	SELECT * FROM user WHERE deviceId=#{deviceId}
   </select>
   
+  <update id="updatePieWeight">
+  	UPDATE user SET userCurrentWeight=#{userCurrentWeight},userTargetWeight=#{userTargetWeight} WHERE deviceid=#{deviceId} ;
+  </update>
+  
 </mapper>

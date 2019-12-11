@@ -45,7 +45,7 @@ public class Main {
 			            	userInfo.setUserPw(rs.getString("userPw"));
 			            	userInfo.setUserHeight(rs.getInt("userHeight"));
 			            	userInfo.setUserGender(rs.getString("userGender"));
-			            	userInfo.setAge(rs.getInt("userAge"));
+			            	userInfo.setUserAge(rs.getInt("userAge"));
 			            	userInfo.setUserWeight(rs.getInt("userWeight"));
 			            	userInfo.setUserCurrentWeight(rs.getInt("userCurrentWeight"));
 			            	allUserInfo.add(userInfo);
@@ -66,12 +66,12 @@ public class Main {
 				            	allDeviceInfo.add(deviceInfo);
 				            }
 				            if(dataCalculator.calWorkTime(allDeviceInfo)>1) {
-					            pstmt = con.prepareStatement("INSERT INTO w_data(deviceId, DISTANCE, kcal, avgHR, maxHR, workTime) VALUES(?,?,?,?,?,?)");
+					            pstmt = con.prepareStatement("INSERT INTO w_data(deviceId, DISTANCE, kcal, avgHR, workIntensity, workTime) VALUES(?,?,?,?,?,?)");
 					            pstmt.setInt(1, i.getDeviceId());
 					            pstmt.setInt(2, dataCalculator.calDistance(allDeviceInfo));
-					            pstmt.setInt(3, 0);
+					            pstmt.setInt(3, dataCalculator.calKcal(i, allDeviceInfo));
 					            pstmt.setInt(4, dataCalculator.calAvgHR(allDeviceInfo));
-					            pstmt.setInt(5, 0);
+					            pstmt.setInt(5, dataCalculator.calWorkIntensity(i, allDeviceInfo));
 					            pstmt.setInt(6, dataCalculator.calWorkTime(allDeviceInfo));
 					            pstmt.executeQuery();
 					            

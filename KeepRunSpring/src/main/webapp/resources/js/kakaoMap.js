@@ -1,9 +1,7 @@
 	var IdGpsLat = 37.250674;
 	var	IdGpsLng = 127.022816;
 
-	console.log("gps" +document.getElementById("gpsLatitude0").value );
-		
-	if(document.getElementById("gpsLatitude0").value!=0){
+	if(document.getElementById("gpsLatitude0")!=null){
 		IdGpsLat = document.getElementById("gpsLatitude0").value;
 		IdGpsLng = document.getElementById("gpsLongitude0").value;
 		

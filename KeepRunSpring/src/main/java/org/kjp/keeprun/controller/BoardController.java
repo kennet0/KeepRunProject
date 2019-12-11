@@ -17,8 +17,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
@@ -37,39 +35,40 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/index")
-	public void index(MemberVO userInfo, Model model ) {
+	public void index(int deviceId, Model model, HttpServletRequest request,MemberVO userInfoJsp) throws Exception {
 		logger.info("BoardIndex");
-//		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
-//        MemberVO userInfo = (MemberVO) flashMap.get("userInfo");
-        
-        
-        int deviceId = userInfo.getDeviceId();
-        Date lastWorkDate = boardService.wList(deviceId).get(0).getWorkDate();
-       
-		model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(deviceId,lastWorkDate));
-//		model.addAttribute("wList", boardService.wList(deviceId));
-		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
-		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
-		model.addAttribute("userInfo", userInfo);
+		if(userInfoJsp.getUserCurrentWeight()!=0) {
+			homeService.updatePieWeight(userInfoJsp);
+		}
+		     
+        if(!boardService.wList(deviceId).toString().equals("[]")) {
+	        Date lastWorkDate = boardService.wList(deviceId).get(0).getWorkDate();
+	       	model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(deviceId,lastWorkDate));
+			model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
+			model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(deviceId,lastWorkDate)));
+        }
+        model.addAttribute("userInfo", homeService.userInfoByDeviceId(deviceId)); 
 	
 		
 	}
 	@RequestMapping(value = "/indexOne")
 	public String indexOne(Model model, WorkProcessVO workProcessVO) throws Exception {
-				
+			
 		model.addAttribute("dayWorkProcessData", boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate()));
 		model.addAttribute("weekKcal", boardService.weekKcal(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));
 		model.addAttribute("dayDeviceData", boardService.dayDeviceData(boardService.dayWorkProcessData(workProcessVO.getDeviceId(),workProcessVO.getWorkDate())));
 		model.addAttribute("userInfo", homeService.userInfoByDeviceId(workProcessVO.getDeviceId()));
+		
 	
 		return "board/index";
 	}
 	
 	
 	@RequestMapping(value = "/tables")
-	public void table(Model model, int deviceId) {
+	public void table(Model model, int deviceId) throws Exception {
 		logger.info("BoardTables");
 		
+		model.addAttribute("userInfo", homeService.userInfoByDeviceId(deviceId)); 
 		model.addAttribute("wList", boardService.wList(deviceId));
 		
 	}
