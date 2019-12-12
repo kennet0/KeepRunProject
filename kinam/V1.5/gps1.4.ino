@@ -13,7 +13,7 @@ ESP8266WiFiMulti WiFiMulti;
 #include <stdio.h>
 
 LiquidCrystal_I2C lcd(0x27,20,4);
-slept well
+
 //센서변수
 int PulseSensorPurplePin = 0; //심박센서 A0 연결 
 int BUTTON1 =14; // Use D5, GPIO14
