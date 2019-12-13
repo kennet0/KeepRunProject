@@ -89,7 +89,7 @@
                       <td>${WorkProcessVO.distance}</td>
                       <td>${WorkProcessVO.kcal}</td>
                       <td>${WorkProcessVO.avgHR}</td>
-                      <td>${WorkProcessVO.maxHR}</td>
+                      <td>${WorkProcessVO.workIntensity}</td>
                       
                   </tr>
                   </c:forEach>

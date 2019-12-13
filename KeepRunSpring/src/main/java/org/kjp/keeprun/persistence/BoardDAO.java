@@ -10,7 +10,7 @@ public interface BoardDAO {
 	
 	public WorkProcessVO dayWorkProcessData(TempVO vo);
 	public List<WorkProcessVO> wList(int deviceId);
-	public List<Integer> weekKcal(WorkProcessVO oneVO);
+	public List<WorkProcessVO> weekKcal(WorkProcessVO oneVO);
 	public List<DeviceDataVO> dayDeviceData(WorkProcessVO oneVO);
 
 }

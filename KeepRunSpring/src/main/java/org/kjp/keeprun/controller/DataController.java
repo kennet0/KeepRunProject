@@ -32,12 +32,12 @@ public class DataController {
 		double gpsLatitude=0;
 		double gpsLongitude=0;
 		if(request.getParameter("userHR")!=null) {userHR = Integer.parseInt(request.getParameter("userHR"));}
-		if(request.getParameter("gpsLatitude")!=null) {gpsLatitude=Double.parseDouble("gpsLatitude");}
-		if(request.getParameter("gpsLongitude")!=null) {gpsLongitude=Double.parseDouble("gpsLongitude");}
+		if(request.getParameter("gpsLatitude")!=null) {gpsLatitude=Double.parseDouble(request.getParameter("gpsLatitude"));}
+		if(request.getParameter("gpsLongitude")!=null) {gpsLongitude=Double.parseDouble(request.getParameter("gpsLongitude"));}
 		
 		
 		if(request.getParameter("deviceID")!=null) {
-			if(request.getParameter("gpsLatitude")!=null && request.getParameter("gpsLatitude")!=null) {
+			if(request.getParameter("gpsLatitude")!=null && request.getParameter("gpsLongitude")!=null) {
 				DeviceDataVO deviceDataVO = new DeviceDataVO();
 				deviceDataVO.setDeviceId(deviceId);
 				deviceDataVO.setUserHR(userHR);

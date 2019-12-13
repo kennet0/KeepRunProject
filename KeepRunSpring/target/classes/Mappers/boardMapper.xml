@@ -13,8 +13,8 @@
 		<![CDATA[SELECT * FROM w_data where deviceId=#{deviceId}  ORDER BY bno DESC ]]> 
 	</select>
 	
-	<select id="weekKcal" resultType="Integer">
-		<![CDATA[SELECT kcal FROM w_data WHERE deviceId=#{deviceId} and YEARWEEK(workDate) = YEARWEEK(#{workDate}) ORDER BY bno desc]]> 
+	<select id="weekKcal" resultType="WorkProcessVO">
+		<![CDATA[SELECT kcal,workDate FROM w_data WHERE deviceId=#{deviceId} and YEARWEEK(workDate) = YEARWEEK(#{workDate}) ORDER BY bno desc]]> 
 	</select>
 	
 	<select id="dayDeviceData" resultType="DeviceDataVO">

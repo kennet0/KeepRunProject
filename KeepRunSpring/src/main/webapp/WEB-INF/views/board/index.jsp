@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 
@@ -137,8 +140,9 @@
           <div class="row">
 
             <!-- Area Chart -->
-             <c:forEach items="${weekKcal}" var="kcal" varStatus="status" begin="0" end="6">
-         	  <input type="hidden" id="kcal${status.index}"  value="${kcal}" >
+             <c:forEach items="${weekKcal}" var="kcalWPVO" varStatus="status" begin="0" end="6">
+         	  <input type="hidden" id="kcal${status.index}"  value="${kcalWPVO.kcal}" >
+         	  <input type="hidden" id="date${status.index}"  value="${kcalWPVO.workDate}" >
             </c:forEach>
             
             

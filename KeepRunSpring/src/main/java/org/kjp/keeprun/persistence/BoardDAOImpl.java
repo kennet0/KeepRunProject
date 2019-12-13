@@ -32,7 +32,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<Integer> weekKcal(WorkProcessVO oneVO) {
+	public List<WorkProcessVO> weekKcal(WorkProcessVO oneVO) {
 		
 		return session.selectList(nameSpace+".weekKcal", oneVO);
 	}

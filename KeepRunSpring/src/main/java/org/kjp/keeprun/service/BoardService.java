@@ -11,7 +11,7 @@ public interface BoardService {
 	
 	public WorkProcessVO dayWorkProcessData(int deviceId, Date lastWorkDate);
 	public List<WorkProcessVO> wList(int deviceId);
-	public List<Integer> weekKcal(WorkProcessVO oneVO);
+	public List<WorkProcessVO> weekKcal(WorkProcessVO oneVO);
 	public List<DeviceDataVO> dayDeviceData(WorkProcessVO oneVO);
 	
 	

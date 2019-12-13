@@ -3,11 +3,9 @@ function resultStatus(){
 	var workIntensity = parseInt(document.getElementById("workIntensity").value);
 	var workResultStatus="";
 	if(workIntensity<60){
-		workResultStatus="Increase Work Intensity!"
-	}else if (workIntensity>=60 && workIntensity<76){
-		workResultStatus="Proper Work Intensity!"
+		workResultStatus="운동 강도를 높이세요!!"
 	}else if (workIntensity>=76){
-		workResultStatus="Overed Work Intensity!"
+		workResultStatus="너무 무리하셨어요!"
 	}
 	document.write(workResultStatus);
 	return workResultStatus;

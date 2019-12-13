@@ -1,3 +1,5 @@
+	
+	
 	var IdGpsLat = 37.250674;
 	var	IdGpsLng = 127.022816;
 
@@ -34,6 +36,16 @@
 		lng[i]=document.getElementById("gpsLongitude"+i).value;
 		gpsData.push(new kakao.maps.LatLng(lat[i], lng[i]))
 	}
+	// var acoords=[];
+	// var bcoords=[];
+	// var distance=0;
+	// for(var i; i<gpsCount-1;i++){
+	// 	acoords[i] = { latitude : lat[i],longitude : lng[i]	};
+	// 	bcoords[i] = { latitude : lat[i+1],longitude : lng[i+1]	};
+	// 	distance = computeDistance(acoords[i],bcoords[i]);
+	// 	console.log(distance);
+	// }
+	
 	
 	
 	var linePath = gpsData;

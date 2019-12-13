@@ -39,7 +39,9 @@ public int calWorkTime(List<DeviceDataVO> listData) {
 			lon2 = listData.get(i+1).getGpsLongitude();
 			
 			CalGpsToDistance calGpsToDistance = new CalGpsToDistance();
-			distanceSum += calGpsToDistance.distance(lat1, lon1, lat2, lon2, "meter");
+			if(calGpsToDistance.distance(lat1, lon1, lat2, lon2, "meter")<5) {
+				distanceSum += calGpsToDistance.distance(lat1, lon1, lat2, lon2, "meter");
+			}
 			
 		}
 		return (int)distanceSum;		
@@ -89,7 +91,7 @@ public int calWorkTime(List<DeviceDataVO> listData) {
 			}
 		}
 				
-		return 100*calAvgHR(listData)/(220-user.getUserAge())-calmHR;
+		return 100*calAvgHR(listData)/((220-user.getUserAge())-calmHR);
 	}
 	
 	public int calKcal(MemberVO user,List<DeviceDataVO> listData) {

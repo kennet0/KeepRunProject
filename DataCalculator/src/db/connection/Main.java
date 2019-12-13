@@ -20,8 +20,12 @@ public class Main {
 	 public static void main(String[] args) {
 	        
 	        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+	        SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
 			Date now = new Date();
 			String nowCompareTime = format.format(now);
+			String nowCompareDate = format2.format(now);
+			System.out.println(nowCompareDate);
+			
 //			for(;;) {
 //				if(nowCompareTime.equals("23:59:59")) {
 					Connection con = null;
@@ -53,8 +57,9 @@ public class Main {
 			            for(MemberVO i:allUserInfo) {
 			            	DataCalculator dataCalculator = new DataCalculator();
 			            	List<DeviceDataVO> allDeviceInfo = new ArrayList<DeviceDataVO>();
-				            pstmt = con.prepareStatement("SELECT * FROM a_data WHERE deviceId=? and DATE(sendTime) = DATE('2019-12-05')");
+				            pstmt = con.prepareStatement("SELECT * FROM a_data WHERE deviceId=? and DATE(sendTime) = DATE(?)");
 				            pstmt.setInt(1,i.getDeviceId());
+				            pstmt.setString(2,nowCompareDate);				            
 				            rs = pstmt.executeQuery();
 				            while(rs.next()) {
 				            	DeviceDataVO deviceInfo = new DeviceDataVO();

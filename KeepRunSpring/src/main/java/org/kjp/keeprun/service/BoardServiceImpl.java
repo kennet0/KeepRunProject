@@ -36,7 +36,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<Integer> weekKcal(WorkProcessVO oneVO) {
+	public List<WorkProcessVO> weekKcal(WorkProcessVO oneVO) {
 		
 		return boardDAO.weekKcal(oneVO);
 	}
