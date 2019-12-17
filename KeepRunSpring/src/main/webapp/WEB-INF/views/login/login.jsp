@@ -43,18 +43,18 @@
                   </div>
                   <form class="user" method = "post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="userId" name="userId" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" class="form-control form-control-user" id="userId" name="userId" value="kinam@naver.com" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="userPw" name="userPw" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="userPw" name="userPw" value="1234" placeholder="Password">
                     </div>
                   <!--   <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
-                    </div> -->
-                    <input type ="submit" class="btn btn-primary btn-user btn-block" value = "login">
+                    </div> -->                
+                    <input type ="submit" class="btn btn-primary btn-user btn-block" value = "SampleID Login">
                      <hr>
                   </form>
                   <hr>
